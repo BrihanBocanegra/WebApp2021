@@ -50,7 +50,7 @@ namespace WebApp2021
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Contacto}/{id?}");
             });
         }
     }
