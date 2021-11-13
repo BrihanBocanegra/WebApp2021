@@ -6,7 +6,6 @@ function listartipomedicamento() {
 
      fetchGet("TipoMedicamento/ListarTipoMedicamento", "json", function (res) {
         var nregistros = res.length;
-        alert(nregistros);
 
         var contenido = "";
         contenido += "<table class='table'>";

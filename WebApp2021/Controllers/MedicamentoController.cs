@@ -8,26 +8,10 @@ namespace WebApp2021.Controllers
 {
     public class MedicamentoController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Medicamento()
         {
             return View();
         }
-
-        public IActionResult Inicio()
-        {
-            return View();
-        }
-
-        public string Saludo()
-        {
-            return "Hola Mundo";
-        }
-
-        public string SaludoNombreApellido(string nombre, string apellido)
-        {
-            return "¡Hola " + nombre + " " + apellido + "!";
-        }
-
 
     }
 }

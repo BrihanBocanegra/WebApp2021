@@ -15,16 +15,15 @@
     <header>
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
+                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Home">Inicio</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Contacto">Contacto</a>
+                <a class="nav-link text-dark" asp-area="" asp-controller="Medicamento" asp-action="Medicamento">Medicamento</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="" asp-controller="TipoMedicamento" asp-action="ListarTipoMedicamento">Listar medicamento INKAFARMA</a>
+                <a class="nav-link text-dark" asp-area="" asp-controller="TipoMedicamento" asp-action="TipoMedicamento">Lista de Medicamento</a>
             </li>
         </ul>
-
     </header>
 
     <input type="hidden" id="hdfOculto" value="@Url.Content("~")" />
