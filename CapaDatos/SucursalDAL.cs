@@ -30,16 +30,16 @@ namespace CapaDatos
                             SucursalCLS oSucursalCLS;
                             lista = new List<SucursalCLS>();
 
-                            int postId = drd.GetOrdinal("iidtipomedicamento");
+                            int postId = drd.GetOrdinal("iidsucursal");
                             int postNombre = drd.GetOrdinal("nombre");
-                            int postDescripcion = drd.GetOrdinal("descripcion");
+                            int postDireccion = drd.GetOrdinal("direccion");
 
                             while (drd.Read())
                             {
                                 oSucursalCLS = new SucursalCLS();
                                 oSucursalCLS.iidsucursal = drd.IsDBNull(postId) ? 0 : drd.GetInt32(postId);
                                 oSucursalCLS.nombre = drd.IsDBNull(postNombre) ? "" : drd.GetString(postNombre);
-                                oSucursalCLS.direccion = drd.IsDBNull(postDescripcion) ? "" : drd.GetString(postDescripcion);
+                                oSucursalCLS.direccion = drd.IsDBNull(postDireccion) ? "" : drd.GetString(postDireccion);
                                 lista.Add(oSucursalCLS);
                             }
                             db.Close();
