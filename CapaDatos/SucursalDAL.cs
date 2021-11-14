@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using CapaEntidad;
-using Microsoft.Extensions.Configuration;
 
 namespace CapaDatos
 {
-    public class TipoMedicamentoDAL : CadenaDAL
+    public class SucursalDAL : CadenaDAL
     {
-
-        public List<TipoMedicamentoCLS> ListarMedicamentos()
+        public List<SucursalCLS> ListarSucursal()
         {
-            List<TipoMedicamentoCLS> lista = null;
+            List<SucursalCLS> lista = null;
 
             using (SqlConnection db = new SqlConnection(cadena))
             {
@@ -27,8 +27,8 @@ namespace CapaDatos
 
                         if (drd != null)
                         {
-                            TipoMedicamentoCLS oTipoMedicamentoCLS;
-                            lista = new List<TipoMedicamentoCLS>();
+                            SucursalCLS oSucursalCLS;
+                            lista = new List<SucursalCLS>();
 
                             int postId = drd.GetOrdinal("iidtipomedicamento");
                             int postNombre = drd.GetOrdinal("nombre");
@@ -36,11 +36,11 @@ namespace CapaDatos
 
                             while (drd.Read())
                             {
-                                oTipoMedicamentoCLS = new TipoMedicamentoCLS();
-                                oTipoMedicamentoCLS.iidtipomedicamento = drd.IsDBNull(postId)? 0: drd.GetInt32(postId);
-                                oTipoMedicamentoCLS.nombre = drd.IsDBNull(postNombre)? "": drd.GetString(postNombre);
-                                oTipoMedicamentoCLS.descripcion = drd.IsDBNull(postDescripcion) ? "": drd.GetString(postDescripcion);
-                                lista.Add(oTipoMedicamentoCLS);
+                                oSucursalCLS = new SucursalCLS();
+                                oSucursalCLS.iidsucursal = drd.IsDBNull(postId) ? 0 : drd.GetInt32(postId);
+                                oSucursalCLS.nombre = drd.IsDBNull(postNombre) ? "" : drd.GetString(postNombre);
+                                oSucursalCLS.direccion = drd.IsDBNull(postDescripcion) ? "" : drd.GetString(postDescripcion);
+                                lista.Add(oSucursalCLS);
                             }
                             db.Close();
                         }
@@ -54,8 +54,9 @@ namespace CapaDatos
                 }
 
             }
+
+
             return lista;
         }
-
     }
 }

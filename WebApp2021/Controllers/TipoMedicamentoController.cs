@@ -25,7 +25,7 @@ namespace WebApp2021.Controllers
             return View();
         }
 
-
+        /*
         public string cadena()
         {
             IConfigurationBuilder builder = new ConfigurationBuilder();
@@ -36,6 +36,7 @@ namespace WebApp2021.Controllers
             var cadenaDato = root.GetConnectionString("db");
             return cadenaDato;
         }
+        */
 
     }
 }
