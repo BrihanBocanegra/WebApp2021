@@ -20,5 +20,11 @@ namespace WebApp2021.Controllers
             SucursalBL obj = new SucursalBL();
             return obj.ListarSucursal();
         }
+
+        public List<SucursalCLS> FiltrarSucursal(string nombresucursal)
+        {
+            SucursalBL obj = new SucursalBL();
+            return obj.FiltrarSucursal(nombresucursal);
+        }
     }
 }

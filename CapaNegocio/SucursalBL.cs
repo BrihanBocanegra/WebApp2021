@@ -15,5 +15,13 @@ namespace CapaNegocio
             SucursalDAL obj = new SucursalDAL();
             return obj.ListarSucursal();
         }
+
+
+        public List<SucursalCLS> FiltrarSucursal(string nombresucursal)
+        {
+            SucursalDAL obj = new SucursalDAL();
+            return obj.FiltrarSucursal(nombresucursal);
+        }
+
     }
 }

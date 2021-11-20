@@ -60,7 +60,7 @@ namespace CapaDatos
         }
 
 
-        public List<SucursalCLS> FiltrarSucursal()
+        public List<SucursalCLS> FiltrarSucursal(string nombresucursal)
         {
             List<SucursalCLS> lista = null;
 
@@ -72,6 +72,7 @@ namespace CapaDatos
                     using (SqlCommand cmd = new SqlCommand("uspFiltrarSucursal", db))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@nombresucursal", nombresucursal==null ? "" : nombresucursal);
                         SqlDataReader drd = cmd.ExecuteReader(CommandBehavior.SingleResult);
 
                         if (drd != null)
