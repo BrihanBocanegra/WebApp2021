@@ -2,9 +2,7 @@
     try {
         var raiz = document.getElementById("hdfOculto").value;
         //http://...
-        var urlCompleta = window.location.protocol + "//" +
-            window.location.host + "/" + raiz + url
-
+        var urlCompleta = window.location.protocol + "//" + window.location.host + "/" + raiz + url
         var res = await fetch(urlCompleta)
         if (tiporespuesta == "json")
             res = await res.json();
@@ -22,13 +20,50 @@
 var objConfiguracionGlobal;
 
 // {url:"", columnas:[], propiedades:[]}
-function pintar(objConfiguracion) {
+function mostrar(objConfiguracion) {
     objConfiguracionGlobal = objConfiguracion;
-    fetchGet("TipoMedicamento/ListarTipoMedicamento", "json", function (res) {
-
+    fetchGet(objConfiguracion.url, "json", function (res) {
         var contenido = "";
-        contendido += generarTabla(res)
+
+        contenido += generarTabla(res)
         document.getElementById("divTabla").innerHTML = contenido;
 
     })
+}
+
+
+function generarTabla(res) {
+
+    var contenido = "";
+    var cabeceras = objConfiguracionGlobal.cabeceras;
+    var propiedades = objConfiguracionGlobal.propiedades;
+
+    contenido += "<table class='table'>";
+    contenido += "<thead>";
+    contenido += "<tr>";
+    for (var i = 0; i < cabeceras.length; i++) {
+        contenido += "<td>" + cabeceras[i] + "</td>";
+    }
+    contenido += "</tr>";
+    contenido += "</thead>";
+
+    var nregistros = res.length
+    var obj;
+    var propiedadActual;
+
+    contenido += "<tbody>";
+    for (var i = 0; i < nregistros; i++) {
+        obj = res[i]
+        contenido += "<tr>";
+        for (var j = 0; j < propiedades.length; j++) {
+            propiedadActual = propiedades[j]
+            contenido += "<td>" + obj[propiedadActual] + "</td>";
+        }
+        contenido += "</tr>";
+    }
+
+    contenido += "</tbody>";
+
+    contenido += "</table>";
+    return contenido;
 }

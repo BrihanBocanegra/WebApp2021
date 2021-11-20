@@ -20,9 +20,58 @@ namespace CapaDatos
                 try
                 {
                     db.Open();
-                    using (SqlCommand cmd = new SqlCommand("select nombre, iidtipomedicamento,  descripcion from TipoMedicamento where BHABILITADO = 1", db))
+                    using (SqlCommand cmd = new SqlCommand("uspListarSucursal", db))
                     {
-                        cmd.CommandType = CommandType.Text;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        SqlDataReader drd = cmd.ExecuteReader(CommandBehavior.SingleResult);
+
+                        if (drd != null)
+                        {
+                            SucursalCLS oSucursalCLS;
+                            lista = new List<SucursalCLS>();
+
+                            int postId = drd.GetOrdinal("iidsucursal");
+                            int postNombre = drd.GetOrdinal("nombre");
+                            int postDireccion = drd.GetOrdinal("direccion");
+
+                            while (drd.Read())
+                            {
+                                oSucursalCLS = new SucursalCLS();
+                                oSucursalCLS.iidsucursal = drd.IsDBNull(postId) ? 0 : drd.GetInt32(postId);
+                                oSucursalCLS.nombre = drd.IsDBNull(postNombre) ? "" : drd.GetString(postNombre);
+                                oSucursalCLS.direccion = drd.IsDBNull(postDireccion) ? "" : drd.GetString(postDireccion);
+                                lista.Add(oSucursalCLS);
+                            }
+                            db.Close();
+                        }
+                    }
+                }
+
+                catch (Exception ex)
+                {
+                    db.Close();
+                    lista = null;
+                }
+
+            }
+
+
+            return lista;
+        }
+
+
+        public List<SucursalCLS> FiltrarSucursal()
+        {
+            List<SucursalCLS> lista = null;
+
+            using (SqlConnection db = new SqlConnection(cadena))
+            {
+                try
+                {
+                    db.Open();
+                    using (SqlCommand cmd = new SqlCommand("uspFiltrarSucursal", db))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
                         SqlDataReader drd = cmd.ExecuteReader(CommandBehavior.SingleResult);
 
                         if (drd != null)
