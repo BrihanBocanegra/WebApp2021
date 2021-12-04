@@ -1,4 +1,12 @@
-﻿async function fetchGet(url, tiporespuesta, callback) {
+﻿function get(idcontrol) {
+    return document.getElementById("txtbuscarsucursal").value;
+}
+
+function set(idcontrol, valor) {
+    return document.getElementById("txtbuscarsucursal").value = valor;
+}
+
+async function fetchGet(url, tiporespuesta, callback) {
     try {
         var raiz = document.getElementById("hdfOculto").value;
         //http://...

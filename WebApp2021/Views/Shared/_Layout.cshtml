@@ -5,12 +5,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"]</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 
 
-<body>  
+<body>
 
     <header>
         <ul class="nav">
@@ -23,17 +23,20 @@
             <li class="nav-item">
                 <a class="nav-link text-dark" asp-area="" asp-controller="TipoMedicamento" asp-action="TipoMedicamento">Lista de Medicamento</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-controller="Sucursal" asp-action="Index">Listar Sucursal</a>
+            </li>
         </ul>
     </header>
 
     <input type="hidden" id="hdfOculto" value="@Url.Content("~")" />
- 
-    <div class="container">
-        @RenderBody() 
-    </div>
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    @RenderBody()
+
+    @*<script src="~/lib/jquery/dist/jquery.min.js"></script>*@
+
+<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
