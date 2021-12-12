@@ -9,7 +9,7 @@ using CapaEntidad;
 
 namespace CapaDatos
 {
-    class LaboratorioDAL : CadenaDAL
+    public class LaboratorioDAL : CadenaDAL
     {
         public List<LaboratorioCLS> ListarLaboratorio()
         {
