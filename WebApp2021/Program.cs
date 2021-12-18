@@ -22,5 +22,6 @@ namespace WebApp2021
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+        
     }
 }
