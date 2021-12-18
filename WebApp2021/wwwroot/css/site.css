@@ -16,3 +16,23 @@
     font-size: 16px;
     font-weight: bold;
 }
+
+.bg-home, body {
+    background-color: #f6f6f6;
+}
+
+header, .bg-light {
+    background-color: #fff !important;
+}
+
+.card {
+    border-radius: 5px;
+    border: #fff 0px solid;
+
+}
+
+.table-datos {
+    background-color: #fff;
+    border-radius: 5px;
+    border: #fff 0px solid;
+}

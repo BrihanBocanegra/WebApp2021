@@ -3,28 +3,55 @@
 }
 
 
-<div class="container">
-    <form id="FormBuscar">
-        <div class="form-group">
-            <label for="">Buscar Nombre</label>
-            <input type="text" class="form-control" id="">
-        </div>
-        <div class="form-group">
-            <label for="">Buscar Dirección</label>
-            <input type="text" class="form-control" id="">
-        </div>
-        <div class="form-group">
-            <label for="">Buscar Contacto</label>
-            <input type="text" class="form-control" id="">
-        </div>
-    </form>
+<div class="container bg-home">
 
-    <button class="btn btn-primary" onclick="Buscar">Buscar</button>
-    <button class="btn btn-danger" onclick="Limpiar">Limpiar</button>
+    <div class="row">
+        <div class="col-4">
+            <div class="card p-3 mt-2 mb-2">
+                <form id="FormBuscar">
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="">Buscar Nombre</label>
+                            <input type="text" class="form-control" id="">
+                        </div>
+                        <div class="col-12">
+                            <label for="">Buscar Dirección</label>
+                            <input type="text" class="form-control" id="">
+                        </div>
+                        <div class="col-12">
+                            <label for="">Buscar Contacto</label>
+                            <input type="text" class="form-control" id="">
+                        </div>
+                    </div>
+                </form>
 
-    <div id="divTabla">
+                <div class="mt-4 mb-2">
+                    <button class="btn btn-primary btn-block" onclick="Buscar">Buscar</button>
+                    <button class="btn btn-danger btn-block" onclick="Limpiar">Limpiar</button>
+                </div>
+            </div>
 
+
+
+        </div>
+
+        <div class="col-8">
+            <div class="table-datos p-3 mt-2 mb-2">
+                <div id="divTabla" class="">
+
+                </div>
+            </div>
+
+           
+        </div>
     </div>
+
+    
+
+
+
+
+    
 </div>
 
 
