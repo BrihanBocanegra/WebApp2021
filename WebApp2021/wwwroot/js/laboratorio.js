@@ -5,8 +5,8 @@
 function listarlaboratorio() {
     mostrar({
         url: "Laboratorio/ListarLaboratorio",
-        cabeceras: ["Id", "Nombre", "Descripción", "Contacto"],
-        propiedades: ["iidlaboratorio", "nombre", "descripcion", "personacontacto"]
+        cabeceras: ["Id", "Nombre", "Dirección", "Contacto"],
+        propiedades: ["iidlaboratorio", "nombre", "direccion", "personacontacto"]
     }
     )
 }

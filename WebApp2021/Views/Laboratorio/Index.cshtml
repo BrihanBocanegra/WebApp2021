@@ -1,13 +1,32 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<div class="container">
+    <form id="FormBuscar">
+        <div class="form-group">
+            <label for="">Buscar Nombre</label>
+            <input type="text" class="form-control" id="">
+        </div>
+        <div class="form-group">
+            <label for="">Buscar Dirección</label>
+            <input type="text" class="form-control" id="">
+        </div>
+        <div class="form-group">
+            <label for="">Buscar Contacto</label>
+            <input type="text" class="form-control" id="">
+        </div>
+    </form>
 
-<div id="divTabla">
+    <button class="btn btn-primary" onclick="Buscar">Buscar</button>
+    <button class="btn btn-danger" onclick="Limpiar">Limpiar</button>
 
+    <div id="divTabla">
+
+    </div>
 </div>
+
+
 
 <script src="~/js/general.js"></script>
 <script src="~/js/laboratorio.js"></script>

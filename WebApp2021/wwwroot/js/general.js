@@ -75,3 +75,26 @@ function generarTabla(res) {
     contenido += "</table>";
     return contenido;
 }
+
+
+async function fetchPost(url, tiporespuesta, frm, callback) {
+    try {
+        var raiz = document.getElementById("hdfOculto").value;
+        //http://...
+        var urlCompleta = window.location.protocol + "//" + window.location.host + "/" + raiz + url
+        var res = await fetch(urlCompleta, {
+            method: "POST",
+            body: frm
+        });
+        if (tiporespuesta == "json")
+            res = await res.json();
+        else if (tiporespuesta == "text")
+            res = await res.text();
+
+        // JSON (Object)
+        callback(res)
+
+    } catch (e) {
+        alert("Ocurrio un error");
+    }
+}
