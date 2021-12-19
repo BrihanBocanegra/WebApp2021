@@ -15,5 +15,11 @@ namespace CapaNegocio
             LaboratorioDAL obj = new LaboratorioDAL();
             return obj.ListarLaboratorio();
         }
+
+        public List<LaboratorioCLS> FiltrarLaboratorio(LaboratorioCLS objLab)
+        {
+            LaboratorioDAL obj = new LaboratorioDAL();
+            return obj.FiltrarLaboratorio(objLab);
+        }
     }
 }

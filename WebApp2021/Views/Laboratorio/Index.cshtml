@@ -7,31 +7,28 @@
     <div class="row">
         <div class="col-4">
             <div class="card p-3 mt-2 mb-2">
-                <form id="FormBuscar">
+                <form id="frmBusqueda">
                     <div class="row">
                         <div class="col-12">
                             <label for="">Buscar Nombre</label>
-                            <input type="text" class="form-control" id="">
+                            <input type="text" class="form-control" id="" name="nombre">
                         </div>
                         <div class="col-12">
                             <label for="">Buscar Dirección</label>
-                            <input type="text" class="form-control" id="">
+                            <input type="text" class="form-control" id="" name="direccion">
                         </div>
                         <div class="col-12">
                             <label for="">Buscar Contacto</label>
-                            <input type="text" class="form-control" id="">
+                            <input type="text" class="form-control" id="" name="personacontacto">
                         </div>
                     </div>
                 </form>
 
                 <div class="mt-4 mb-2">
-                    <button class="btn btn-primary btn-block" onclick="Buscar">Buscar</button>
-                    <button class="btn btn-danger btn-block" onclick="Limpiar">Limpiar</button>
+                    <button class="btn btn-primary btn-block" onclick="BuscarForms()">Buscar</button>
+                    <button class="btn btn-danger btn-block" onclick="LimpiarForms()">Limpiar</button>
                 </div>
             </div>
-
-
-
         </div>
 
         <div class="col-8">
@@ -39,21 +36,10 @@
                 <div id="divTabla" class="">
 
                 </div>
-            </div>
-
-           
+            </div>           
         </div>
     </div>
-
-    
-
-
-
-
-    
 </div>
-
-
 
 <script src="~/js/general.js"></script>
 <script src="~/js/laboratorio.js"></script>

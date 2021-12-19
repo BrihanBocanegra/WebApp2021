@@ -20,5 +20,11 @@ namespace WebApp2021.Controllers
             LaboratorioBL obj = new LaboratorioBL();
             return obj.ListarLaboratorio();
         }
+
+        public List<LaboratorioCLS> FiltrarLaboratorio(LaboratorioCLS objLab)
+        {
+            LaboratorioBL obj = new LaboratorioBL();
+            return obj.FiltrarLaboratorio(objLab);
+        }
     }
 }

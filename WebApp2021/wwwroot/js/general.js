@@ -1,9 +1,28 @@
 ﻿function get(idcontrol) {
-    return document.getElementById("txtbuscarsucursal").value;
+    return document.getElementById(idcontrol).value;
 }
 
 function set(idcontrol, valor) {
-    return document.getElementById("txtbuscarsucursal").value = valor;
+    return document.getElementById(idcontrol).value = valor;
+}
+
+function setName(namecontrol, valor) {
+    return document.getElementsByName(namecontrol)[0].value = "";
+}
+
+function getName(namecontrol, valor) {
+    return document.getElementsByName(namecontrol)[0].value;
+}
+
+function LimpiarDatos(idformulario) {
+    var elementosName = document.querySelectorAll("#" + idformulario + " [name]");
+    var elementoActual;
+    var elementoName;
+    for (var i = 0; i < elementosName.length; i++) {
+        elementoActual = elementosName[i]
+        elementoName = elementoActual.name;
+        setName(elementoName, "")
+    }
 }
 
 async function fetchGet(url, tiporespuesta, callback) {
@@ -30,9 +49,11 @@ var objConfiguracionGlobal;
 // {url:"", columnas:[], propiedades:[]}
 function mostrar(objConfiguracion) {
     objConfiguracionGlobal = objConfiguracion;
+    if (objConfiguracion.divContenedorTabla == undefined)
+        objConfiguracion.divContenedorTabla = "divContenedorTabla"
     fetchGet(objConfiguracion.url, "json", function (res) {
         var contenido = "";
-
+        contenido += "<div id='" + objConfiguracion.divContenedorTabla + "'>";
         contenido += generarTabla(res)
         document.getElementById("divTabla").innerHTML = contenido;
 
@@ -75,7 +96,6 @@ function generarTabla(res) {
     contenido += "</table>";
     return contenido;
 }
-
 
 async function fetchPost(url, tiporespuesta, frm, callback) {
     try {
