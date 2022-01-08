@@ -1,7 +1,11 @@
-﻿@{
+﻿
+@{
     ViewData["Title"] = "Index";
 }
 
+@{
+    Html.RenderPartial("_Carousel");
+}
 
 <div class="container bg-home">
     <div class="row">
@@ -30,13 +34,12 @@
                 </div>
             </div>
         </div>
-
         <div class="col-8">
             <div class="table-datos p-3 mt-2 mb-2">
                 <div id="divTabla" class="">
 
                 </div>
-            </div>           
+            </div>
         </div>
     </div>
 </div>
